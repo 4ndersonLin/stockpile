@@ -5,8 +5,13 @@
   description: Run an application as a different user
   tactic: execution
   technique:
+<<<<<<< HEAD
     attack_id: T1064
     name: Scripting
+=======
+    attack_id: T1059.001
+    name: "Command and Scripting Interpreter: PowerShell"
+>>>>>>> upstream/master
   platforms:
     windows:
       psh:
@@ -18,4 +23,15 @@
             $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword;
             Start-Process Notepad.exe -NoNewWindow -PassThru -Credential $credential;
           };
+<<<<<<< HEAD
           Receive-Job -Job $job -Wait;
+=======
+          Receive-Job -Job $job -Wait;
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+      - source: host.user.name
+    - plugins.stockpile.app.requirements.basic:
+      - source: host.user.name
+        edge: has_password
+        target: host.user.password
+>>>>>>> upstream/master

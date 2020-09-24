@@ -5,8 +5,13 @@
   description: Search for possible credentials stored in the HKLM Hive
   tactic: credential-access
   technique:
+<<<<<<< HEAD:data/abilities/credential-access/98e58fc4-3843-4511-89b1-50cb872e0c9b.yml
     attack_id: T1003
     name: Credential Dumping
+=======
+    attack_id: T1552.002
+    name: "OS Credential Dumping: Credentials in Registry"
+>>>>>>> upstream/master:abilities/credential-access/98e58fc4-3843-4511-89b1-50cb872e0c9b.yml
   platforms:
     windows:
       psh:

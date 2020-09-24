@@ -5,6 +5,7 @@
   description: Stop terminal from logging history
   tactic: defense-evasion
   technique:
+<<<<<<< HEAD
     attack_id: T1107
     name: File Deletion
   platforms:
@@ -14,6 +15,19 @@
     linux:
       sh:
         command: unset HISTFILE
+=======
+    attack_id: T1070.003
+    name: "Indicator Removal on Host: Clear Command History"
+  platforms:
+    darwin:
+      sh:
+        command: |
+          > $HOME/.bash_history && unset HISTFILE
+    linux:
+      sh:
+        command: |
+          > $HOME/.bash_history && unset HISTFILE
+>>>>>>> upstream/master
     windows:
       psh:
         command: Clear-History;Clear

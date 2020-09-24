@@ -5,10 +5,20 @@
   description: Mounts a network file share on a target computer
   tactic: lateral-movement
   technique:
+<<<<<<< HEAD
     attack_id: T1077
     name: Windows Admin Shares
+=======
+    attack_id: T1021.002
+    name: "Remote Services: SMB/Windows Admin Shares"
+>>>>>>> upstream/master
   platforms:
     windows:
       psh:
         command: |
            net use \\#{remote.host.ip}\c$ /user:#{domain.user.name} #{domain.user.password};
+<<<<<<< HEAD
+=======
+        cleanup: |
+           net use \\#{remote.host.ip}\c$ /delete;
+>>>>>>> upstream/master

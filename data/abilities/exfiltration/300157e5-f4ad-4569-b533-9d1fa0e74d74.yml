@@ -5,8 +5,13 @@
   description: Compress a directory on the file system
   tactic: exfiltration
   technique:
+<<<<<<< HEAD
     attack_id: T1002
     name: Data Compressed
+=======
+    attack_id: T1560.001
+    name: "Archive Collected Data: Archive via Utility"
+>>>>>>> upstream/master
   platforms:
     darwin:
       sh:
@@ -30,9 +35,20 @@
       psh,pwsh:
         command: |
           Compress-Archive -Path #{host.dir.staged} -DestinationPath #{host.dir.staged}.zip -Force;
+<<<<<<< HEAD
           ls #{host.dir.staged}.zip | foreach {$_.FullName} | select
+=======
+          sleep 1; ls #{host.dir.staged}.zip | foreach {$_.FullName} | select
+>>>>>>> upstream/master
         cleanup: |
           rm #{host.dir.staged}.zip
         parsers:
           plugins.stockpile.app.parsers.basic:
+<<<<<<< HEAD
             - source: host.dir.compress
+=======
+            - source: host.dir.compress
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+      - source: host.dir.staged
+>>>>>>> upstream/master

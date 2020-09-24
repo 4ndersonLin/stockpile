@@ -12,3 +12,9 @@
       psh:
         command: |
           Get-ChildItem -Path #{host.system.path}
+<<<<<<< HEAD
+=======
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+      - source: host.system.path
+>>>>>>> upstream/master

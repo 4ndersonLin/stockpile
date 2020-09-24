@@ -8,8 +8,13 @@
     host.service.modifiable this ability can damage the target system.
   tactic: persistence
   technique:
+<<<<<<< HEAD
     attack_id: T1031
     name: Modify Existing Service
+=======
+    attack_id: T1543.003
+    name: "Create or Modify System Process: Windows Service"
+>>>>>>> upstream/master
   platforms:
     windows:
       psh:
@@ -26,4 +31,11 @@
           If (Test-Path ($path + ".saved")) {
             Remove-Item $path;
             Move-Item -Path ($path + ".saved") -Destination $path
+<<<<<<< HEAD
           }
+=======
+          }
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+      - source: host.service.modifiable
+>>>>>>> upstream/master

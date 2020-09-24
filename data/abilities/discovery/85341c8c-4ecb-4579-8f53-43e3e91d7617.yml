@@ -12,12 +12,18 @@
       sh:
         command: arp -a
         parsers:
+<<<<<<< HEAD
           plugins.stockpile.app.parsers.ip:
            - source: remote.host.ip
+=======
+          plugins.stockpile.app.parsers.ipaddr:
+            - source: remote.host.ip
+>>>>>>> upstream/master
     linux:
       sh:
         command: arp -a
         parsers:
+<<<<<<< HEAD
           plugins.stockpile.app.parsers.ip:
            - source: remote.host.ip
     windows:
@@ -31,3 +37,13 @@
         parsers:
           plugins.stockpile.app.parsers.ip:
            - source: remote.host.ip
+=======
+          plugins.stockpile.app.parsers.ipaddr:
+            - source: remote.host.ip
+    windows:
+      psh,cmd:
+        command: arp -a
+        parsers:
+          plugins.stockpile.app.parsers.ipaddr:
+            - source: remote.host.ip
+>>>>>>> upstream/master

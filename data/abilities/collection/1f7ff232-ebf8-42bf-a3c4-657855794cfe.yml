@@ -11,4 +11,11 @@
     darwin:
       sh:
         command: |
+<<<<<<< HEAD
           find $(echo ~#{host.user.name}) -type f -size -500k -maxdepth 5 -exec grep -EIr -o "\b[A-Za-z0-9._%+-]+@#{target.org.name}\b" 2>/dev/null {} \;
+=======
+          find $(echo ~#{host.user.name}) -type f -size -500k -maxdepth 5 -exec grep -EIr -o "\b[A-Za-z0-9._%+-]+@#{target.org.name}\b" 2>/dev/null {} \;
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+      - source: host.user.name
+>>>>>>> upstream/master
